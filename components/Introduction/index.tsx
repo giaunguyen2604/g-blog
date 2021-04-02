@@ -1,16 +1,20 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useAppContext } from '../../contexts/AppContextProvider'
 import { contentType } from '../../constants'
 
 const Introduction: React.FC = () => {
   const { updateCurrentContent } = useAppContext()
-
+  const [opacity, setOpacity] = useState<number>(0)
   const nextStep = () => {
     updateCurrentContent(contentType.ME)
   }
 
+  useEffect(() => {
+    setOpacity(1);
+  },[])
+
   return (
-    <section className="tm-section tm-section-0">
+    <section className="tm-section tm-section-0" style={{  opacity: opacity }}>
       <h2 className="tm-section-title mb-3 font-weight-bold">
         Introduction
       </h2>

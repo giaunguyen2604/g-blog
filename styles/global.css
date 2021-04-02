@@ -59,6 +59,13 @@ footer a:link, footer a:visited {
 
 .tm-nav-links {
   list-style: none;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.tm-nav-links.open {
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
 }
 
 .tm-nav-link:link,
@@ -132,10 +139,12 @@ footer a:link, footer a:visited {
 .tm-section-0 {
   margin-top: 70px;
   max-width: 575px;
+  transition: all 1s ease-in-out;
 }
 .tm-section-1 {
   margin-top: 70px;
   max-width: 420px;
+  transition: all 1s ease-in-out;
 }
 
 .tm-link:link,
@@ -648,3 +657,5 @@ figure.effect-goliath:hover p {
 .tm-static {
   position: static;
 }
+
+@import "./slick.css";

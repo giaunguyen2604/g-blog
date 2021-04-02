@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState, useRef } from 'react'
+import Slider from 'react-slick'
 
 interface ItemProps {
   text: string,
@@ -25,6 +26,24 @@ const SingleItem: React.FC<ItemProps> = ({ text, hightlightText, mainContent, pa
 }
 
 const Gallery: React.FC = () => {
+
+  const refSlider = useRef<Slider | null>(null)
+  const [currentPage, setCurrentPage] = useState<number>(0)
+
+  const settings = {
+    dots: true,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    arrows: false,
+    customPaging: function(i) {
+      return (
+        <a>{i+1}</a>
+      );
+    },
+    dotsClass: "slick-dots slick-thumb",
+  }
 
   const listItems: ItemProps[] = [
     {
@@ -89,21 +108,23 @@ const Gallery: React.FC = () => {
     },
 
   ]
+
   return (
     <section className="tm-section tm-section-2 mx-auto">
       <div className="grid tm-gallery">
-
-        {listItems.map((item: ItemProps, index: number) => {
-          return (
-            <SingleItem
-              text={item.text}
-              hightlightText={item.hightlightText}
-              mainContent={item.mainContent}
-              pathImg={item.pathImg}
-            />
-          )
-        })}
-
+        <Slider {...settings} ref={refSlider}>
+          {listItems && listItems.map((item: ItemProps, index: number) => {
+            return (
+              <SingleItem
+                text={item.text}
+                hightlightText={item.hightlightText}
+                mainContent={item.mainContent}
+                pathImg={item.pathImg}
+                key={index}
+              />
+            )
+          })}
+        </Slider>
       </div>
     </section>
 
