@@ -13,6 +13,7 @@ body {
 
 a {
   transition: all 0.2s;
+  cursor: pointer;
 }
 
 footer a:link, footer a:visited {
@@ -61,7 +62,8 @@ footer a:link, footer a:visited {
 }
 
 .tm-nav-link:link,
-.tm-nav-link:visited {
+.tm-nav-link:visited,
+.tm-nav-link {
   color: black;
   background-color: white;
   padding: 10px 40px;

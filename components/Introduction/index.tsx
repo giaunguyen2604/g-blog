@@ -1,7 +1,14 @@
 import React from 'react'
-
+import { useAppContext } from '../../contexts/AppContextProvider'
+import { contentType } from '../../constants'
 
 const Introduction: React.FC = () => {
+  const { updateCurrentContent } = useAppContext()
+
+  const nextStep = () => {
+    updateCurrentContent(contentType.ME)
+  }
+
   return (
     <section className="tm-section tm-section-0">
       <h2 className="tm-section-title mb-3 font-weight-bold">
@@ -15,7 +22,7 @@ const Introduction: React.FC = () => {
           Please tell your friends about Tooplate for free templates. This is 70% alpha background.
         </p>
       </div>
-      <a href="#" id="tm_about_link" data-linkid={1} className="tm-link">Read More</a>
+      <a id="tm_about_link" data-linkid={1} className="tm-link" onClick={nextStep}>Read More</a>
     </section>
 
   )
