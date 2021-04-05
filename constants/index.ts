@@ -5,4 +5,11 @@ const contentType = {
   CONTACT: 'contact'
 }
 
-export { contentType }
+const listBackgrounds = {
+  INTRO: 'photo-02.jpg',
+  ME: 'photo-03.jpg',
+  GALLERY: 'photo-04.jpg',
+  CONTACT: 'photo-05.jpg'
+}
+
+export { contentType, listBackgrounds }

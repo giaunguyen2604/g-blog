@@ -9,6 +9,7 @@ body {
   color: #ffffff;
   overflow-x: hidden;
   background: #25332e;
+  transition: all 1s ease-in-out;
 }
 
 a {
@@ -25,7 +26,7 @@ footer a:link, footer a:visited {
 
 .tm-main-container {
   position: relative;
-  height: 100%;
+  height: 100vh;
 }
 
 .tm-top-container {
@@ -666,4 +667,9 @@ figure.effect-goliath:hover p {
   position: static;
 }
 
+
+.footer-area {
+  position: absolute;
+  bottom: 0;
+}
 @import "./slick.css";
