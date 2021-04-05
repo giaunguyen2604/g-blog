@@ -1,9 +1,14 @@
-import React from 'react'
-
+import React, { useEffect, useState }  from 'react'
 
 const Contact: React.FC = () => {
+  const [opacity, setOpacity] = useState<number>(0)
+
+  useEffect(() => {
+    setOpacity(1);
+  },[])
+
   return (
-    <section className="tm-section tm-section-3 tm-section-left">
+    <section className="tm-section tm-section-3 tm-section-left" style={{  opacity: opacity }}>
       <form  className="tm-contact-form" method="post">
         <div className="form-group mb-4">
           <input type="text" id="contact_name" name="contact_name" className="form-control" placeholder="Name" required />

@@ -16,21 +16,25 @@ const Navbar: React.FC = () => {
     setShowMenu(!showMenu)
   }
 
+  const goToContent = (content: string) => {
+    updateCurrentContent(content)
+  }
+
   return (
     <nav id="tmNav" className="tm-nav">
       <a className="tm-navbar-menu" onClick={toggleMenu}>Menu</a>
       <ul className={`tm-nav-links ${showMenu && 'open'}`}>
         <li className={`tm-nav-item ${getActiveClassMenu(contentType.INTRO)}`}>
-          <a data-linkid={0} data-align="right" className="tm-nav-link" onClick={() => updateCurrentContent(contentType.INTRO)}>Intro</a>
+          <a data-linkid={0} data-align="right" className="tm-nav-link" onClick={() => goToContent(contentType.INTRO)}>Intro</a>
         </li>
         <li className={`tm-nav-item ${getActiveClassMenu(contentType.ME)}`}>
-          <a data-linkid={1} data-align="right" className="tm-nav-link" onClick={() => updateCurrentContent(contentType.ME)}>About</a>
+          <a data-linkid={1} data-align="right" className="tm-nav-link" onClick={() => goToContent(contentType.ME)}>About</a>
         </li>
         <li className={`tm-nav-item ${getActiveClassMenu(contentType.GALLERY)}`}>
-          <a data-linkid={2} data-align="middle" className="tm-nav-link" onClick={() => updateCurrentContent(contentType.GALLERY)}>Work</a>
+          <a data-linkid={2} data-align="middle" className="tm-nav-link" onClick={() => goToContent(contentType.GALLERY)}>Work</a>
         </li>
         <li className={`tm-nav-item ${getActiveClassMenu(contentType.CONTACT)}`}>
-          <a data-linkid={3} data-align="left" className="tm-nav-link" onClick={() => updateCurrentContent(contentType.CONTACT)}>Contact</a>
+          <a data-linkid={3} data-align="left" className="tm-nav-link" onClick={() => goToContent(contentType.CONTACT)}>Contact</a>
         </li>
 
       </ul>

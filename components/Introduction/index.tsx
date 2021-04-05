@@ -3,15 +3,26 @@ import { useAppContext } from '../../contexts/AppContextProvider'
 import { contentType } from '../../constants'
 
 const Introduction: React.FC = () => {
-  const { updateCurrentContent } = useAppContext()
+  const { updateCurrentContent, currentContent } = useAppContext()
   const [opacity, setOpacity] = useState<number>(0)
+
   const nextStep = () => {
-    updateCurrentContent(contentType.ME)
+    setOpacity(0);
+    setTimeout(() => {
+      updateCurrentContent(contentType.ME)
+    },1000)
   }
 
   useEffect(() => {
     setOpacity(1);
   },[])
+
+  useEffect(() => {
+    console.log("Vào")
+    if (currentContent !== contentType.INTRO){
+      setOpacity(0);
+    }
+  },[currentContent])
 
   return (
     <section className="tm-section tm-section-0" style={{  opacity: opacity }}>
