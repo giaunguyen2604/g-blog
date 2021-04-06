@@ -682,3 +682,9 @@ a.tm-nav-link:hover {
 }
 
 @import "./slick.css";
+
+.rdw-editor-toolbar {
+  background-color: transparent !important;
+  border: none !important;
+  border-bottom: 1px dashed #FFFFFF !important;
+}

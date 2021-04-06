@@ -1,4 +1,4 @@
-import Styled, { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -9,7 +9,7 @@ const GlobalStyle = createGlobalStyle`
   }
 `
 
-const TooplateWrapper = Styled.div`
+const TooplateWrapper = styled.div`
   margin: 0;
 	padding: 0;
 	color: #302d26;
@@ -25,13 +25,13 @@ const TooplateWrapper = Styled.div`
   }
 `;
 
-const TooplateSidebar = Styled.div`
+const TooplateSidebar = styled.div`
   position: fixed;
 	width: 240px;
 	text-align: right;
 `;
 
-const SiteTitle = Styled.div`
+const SiteTitle = styled.div`
   display: block; text-align: right; margin: 80px 0 40px; width: 220px; height: 60px; padding: 20px 10px; background: url(/images/tooplate_header.jpg) no-repeat;
   a {
     font-size: 24px; font-family: Georgia, "Times New Roman", Times, serif; font-weight: 700; color: #fff
@@ -41,7 +41,7 @@ const SiteTitle = Styled.div`
   }
 `;
 
-const TooplateMenu = Styled.div`
+const TooplateMenu = styled.div`
   width: 240px; 
   margin-bottom: 60px;
   ul {
@@ -62,7 +62,7 @@ const TooplateMenu = Styled.div`
 
 `;
 
-const Twitter = Styled.div`
+const Twitter = styled.div`
   padding-right: 10px;
   ul {
   margin: 0; padding: 0; list-style: none 
@@ -72,19 +72,31 @@ const Twitter = Styled.div`
   }
 `;
 
-const TooplateMain = Styled.div`
+const TooplateMain = styled.div`
   width: 750px;
 	padding: 60px 30px 60px 40px;
 	float: right;
+  text-align: center;
   h1 {
     font-size: 38px; padding-bottom: 30px; margin-bottom: 30px; background: url(/images/header.png) repeat-x bottom;
   }
 `;
 
-const MainBox = Styled.div`
-  min-height: 600px; padding: 30px 0; margin-bottom: 30px;
+const MainBox = styled.div`
+  min-height: 600px; 
+  padding: 30px 20px; 
+  margin-bottom: 30px;
+  box-shadow: 0px 0px 90px -15px rgb(159,233,172);
+  background-color: #FFFFFF;
+  border-radius: 30px;
+  border: 5px solid rgb(159 233 172);
 `;
 
+const ListDiaries = styled.div`
+  display: flex;
+  justify-content: space-between;
+  flex-flow: wrap;
+`
 export {
   TooplateWrapper,
   TooplateSidebar,
@@ -93,5 +105,6 @@ export {
   Twitter,
   TooplateMain,
   MainBox,
+  ListDiaries,
   GlobalStyle
 };
