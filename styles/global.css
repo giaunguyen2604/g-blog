@@ -672,4 +672,14 @@ figure.effect-goliath:hover p {
   position: absolute;
   bottom: 0;
 }
+
+a.tm-nav-link {
+  border-radius: 36px;
+  box-shadow: 0px 0px 10px 1px rgb(235, 189, 235);
+}
+
+a.tm-nav-link:hover {
+  box-shadow: 0px 0px 38px 6px rgb(240, 150, 240);
+}
+
 @import "./slick.css";
