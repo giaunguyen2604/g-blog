@@ -1,32 +1,52 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
   TooplateWrapper, TooplateSidebar, SiteTitle,
-  TooplateMenu, Twitter, TooplateMain, MainBox, GlobalStyle, ListDiaries
+  TooplateMenu, Twitter, TooplateMain, GlobalStyle, ListDiaries
 } from './Styled'
 import ItemDiary from '../../components/ItemDiary'
 import ModalDiary from '../../components/ModalDiary'
 import toogleModalViewDiary from '../../utils/toggleModalViewDiary'
+import { DiaryItem } from '../../interfaces'
+
 
 const Diary: React.FC = () => {
-
-  const tempListDiaries = [
+  
+  const [currentDiary, setCurrentDiary] = useState<DiaryItem>({} as DiaryItem)
+  const tempListDiaries: DiaryItem[] = [
     {
       title: 'How do you feel today?',
+      createAt: '2020/04/05 17:00',
+      updateAt: '2020/04/06 07:00',
+      content: 'Hello, nice to meet you!',
       color: '#f8f7f7'
     },
     {
-      title: 'How do you feel today?',
+      title: 'HELLO!',
+      createAt: '2020/04/06 20:00',
+      updateAt: '2020/04/07 07:00',
+      content: 'Hello, nice to meet you!',
       color: '#f6faf5'
     },
     {
-      title: 'How do you feel today?',
+      title: 'How are you?',
+      createAt: '2020/04/05 11:00',
+      updateAt: '2020/04/06 09:00',
+      content: 'Hello, nice to meet you!',
       color: '#f5f6f8'
     },
     {
-      title: 'How do you feel today?',
+      title: 'Good morning!',
+      createAt: '2020/04/05 18:00',
+      updateAt: '2020/04/06 00:00',
+      content: 'Hello, nice to meet you!',
       color: '#f4f7f8'
     }
   ]
+
+  const chooseDiary = (item) => {
+    setCurrentDiary(item)
+    toogleModalViewDiary()
+  }
 
   return (
     <TooplateWrapper id="tooplate_wrapper">
@@ -51,16 +71,16 @@ const Diary: React.FC = () => {
           {
             tempListDiaries.map( (item,index) => {
               return(
-                <div onClick={toogleModalViewDiary} style={{cursor:'pointer'}}>
-                <ItemDiary title={item.title} color={item.color} key={index}/>
+                <div onClick={() => chooseDiary(item)} style={{cursor:'pointer'}}>
+                <ItemDiary key={index} diary={item}/>
                 </div>
               )
             })
           }
         </ListDiaries>
-      </TooplateMain> {/* END of main */}
+      </TooplateMain>
       <div className="cleaner" />
-      <ModalDiary/>
+      <ModalDiary diary={currentDiary}/>
     </TooplateWrapper>
 
   )
